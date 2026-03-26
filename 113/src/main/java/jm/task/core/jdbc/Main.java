@@ -1,8 +1,5 @@
 package jm.task.core.jdbc;
-
-
-
-import jm.task.core.jdbc.model.User;
+/*import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserService;
 import jm.task.core.jdbc.service.UserServiceImpl;
 
@@ -11,6 +8,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
+        s = new test();
 
         UserService userService = new UserServiceImpl();
 
@@ -36,8 +35,54 @@ public class Main {
         // 5. Удаление таблицы
         userService.dropUsersTable();
     }
-}
+}*/
 
+
+import jakarta.persistence.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+    public class Main {
+        public static void main(String[] args) {
+
+            SessionFactory factory = new Configuration()
+                    .configure("hibernate.cfg.xml")
+                    .buildSessionFactory();
+
+            Session session = factory.openSession();
+            session.beginTransaction();
+            User user = new User();
+            user.setName("Ivan");
+
+            session.persist(user); // вставка в базу
+
+            session.getTransaction().commit();
+            session.close();
+
+            System.out.println("Hibernate работает!");
+
+            session.getTransaction().commit();
+            session.close();
+        }
+    }
+
+
+@Entity
+@Table(name = "users")
+ class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    // getters/setters
+}
 //import java.sql.Connection;
 //import java.sql.ResultSet;
 //import java.sql.Statement;
