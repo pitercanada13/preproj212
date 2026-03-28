@@ -5,6 +5,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
+
+
     <groupId>org.example</groupId>
     <artifactId>TaskJDBC</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -29,10 +31,25 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Hibernate -->
         <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>javax.persistence-api</artifactId>
-            <version>2.2</version>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.4.4.Final</version>
+        </dependency>
+
+        <!-- Jakarta Persistence (обязательно для Hibernate 6) -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <!-- Логирование (чтобы видеть SQL) -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.12</version>
         </dependency>
 
     </dependencies>

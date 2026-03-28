@@ -1,3 +1,4 @@
+
 package jm.task.core.jdbc.service;
 
 import jm.task.core.jdbc.model.User;
@@ -17,3 +18,4 @@ public interface UserService {
 
     void cleanUsersTable();
 }
+
