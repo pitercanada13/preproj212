@@ -44,6 +44,6 @@ public class AnimalsCage {
         System.out.println("________________________");
     }
     public Timer getTimer() {
-        return timer; // добавь этот метод
+        return timer;
     }
 }
